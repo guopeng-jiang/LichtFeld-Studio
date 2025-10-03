@@ -92,6 +92,45 @@ Cause: This is a known incompatibility between newer CUDA versions (13.0+) and t
 
 Solution: The most reliable solution is to use CUDA Toolkit 12.8. Change your system's environment variables (CUDA_PATH) to point to your CUDA 12.8 installation and restart your command prompt before running the build again.
 
+# Structure from Motion (SfM) with COLMAP
+
+### Extra step for inputs that are videos
+
+This step is for custom inputs. If you have a video, please extract it into image frames. This can be done with FFMPEG. Below is a template for the ffmpeg command.
+```
+ffmpeg -i input_data/file.mp4 -r 1/1 input_data/$filename%03d.png
+```
+
+Now, with a collection of images of a scene, you would need to put the **set** of input images into the `input_data/<your_image_collection>/input` folder. Eg. `fern/input`
+
+Taking 2 collections (fern and toy_truck) of input images as an example, below is the File Structure **requirements** before running `convert.py`. You would need to create these folders.
+```
+📂gaussian-splatting-Windows.git/ # this is root
+├── 📂input_data/
+│	├── 📂fern/
+│	│	├── 📂input/
+│	│	│	├── 🖼️image1.jpg
+│	│	│	├── 🖼️image2.jpg
+│	│	│	│...
+│	├── 📂toy_truck/
+│	│	├── 📂input/
+│	│	│	├── 🖼️image1.jpg
+│	│	│	├── 🖼️image2.jpg
+│	│	│	│...
+│ │...
+│...
+```
+
+Now, using `fern` as an example, 
+```
+python convert.py -s input_data/fern --colmap_executable COLMAP-3.8-windows-cuda\COLMAP.bat
+```
+Below is the template:
+```
+python convert.py -s <your_input_dir> --colmap_executable COLMAP-3.8-windows-cuda\COLMAP.bat
+```
+
+
 Below is the original documentation
 ---------------------------------------------------------------------------------------------------
 
