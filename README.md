@@ -66,30 +66,17 @@ cmake --build build
 ```
 If the command completes without errors, the LichtFeld-Studio.exe executable will be located in the D:\LichtFeld-Studio\build directory.
 
-## 3. Post-Build Setup: Running the Application
-
-After a successful build, you must configure your system to find the required library files at runtime.
-- Fix for Missing DLLs
-When you first run the program, you may encounter an error about missing DLLs (e.g., c10.dll, torch.dll). To fix this, add the LibTorch library path to your system's PATH environment variable.
-Open the Start Menu and search for "Edit the system environment variables".
-In the System Properties window, click the "Environment Variables..." button.
-Under the "System variables" section, find and select the Path variable, then click Edit....
-Click New and add the full path to your LibTorch lib folder:
-
-```Code
-D:\LichtFeld-Studio\external\release\libtorch\lib
-```
-Click OK on all windows to save your changes.
-Important: Restart your PC (or at least sign out and sign back in) for the changes to take full effect.
-You should now be able to run LichtFeld-Studio.exe successfully.
-
-## 4. Troubleshooting Common Errors
+## 3. Troubleshooting Common Errors
 - Error: Cannot find compiler 'cl.exe' in PATH
+
 Cause: You are not using the correct command prompt.
+
 Solution: Close your current terminal and open the "x64 Native Tools Command Prompt for VS 2022" (or your VS version) from the Start Menu. Navigate back to your project directory and run the cmake command again.
 
 - Error: vcpkg install failed... failed togit showversions/baseline.json
+
 Cause: Your local vcpkg repository is out of date and cannot find the specific library versions required by the project.
+
 Solution: Update your vcpkg installation by running these commands from your VCPKG_ROOT directory:
 
 ```Bash
@@ -100,7 +87,9 @@ git pull
 After updating, delete the build folder in your LichtFeld-Studio directory and re-run the cmake configuration command.
 
 - Error: namespace "cub" has no member "Max"
+
 Cause: This is a known incompatibility between newer CUDA versions (13.0+) and the version of the CUB library expected by this project's dependencies (LibTorch cu128).
+
 Solution: The most reliable solution is to use CUDA Toolkit 12.8. Change your system's environment variables (CUDA_PATH) to point to your CUDA 12.8 installation and restart your command prompt before running the build again.
 
 Below is the original documentation
