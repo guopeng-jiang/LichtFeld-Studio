@@ -94,6 +94,8 @@ Solution: The most reliable solution is to use CUDA Toolkit 12.8. Change your sy
 
 # Structure from Motion (SfM) with COLMAP
 
+You will need to have COLMAP installed to do this. If you don't have it, you can download it from the official COLMAP release page.
+
 ### Extra step for inputs that are videos
 
 This step is for custom inputs. If you have a video, please extract it into image frames. This can be done with FFMPEG. Below is a template for the ffmpeg command.
