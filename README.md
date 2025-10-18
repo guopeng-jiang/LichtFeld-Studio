@@ -132,7 +132,7 @@ Below is the template:
 python convert.py -s <your_input_dir> --colmap_executable COLMAP-3.8-windows-cuda\COLMAP.bat
 ```
 
-## Splitting 360° Frames into 2D Images
+## Splitting 360° Frames into 2D Images (optional)
 
 This step converts the extracted equirectangular 360° frames into a set of standard 2D perspective images. This format is required by most Structure from Motion (SfM) software, including COLMAP, to calculate camera poses accurately.
 The recommended tool for this task is a command-line utility from an older version of AliceVision Meshroom.
