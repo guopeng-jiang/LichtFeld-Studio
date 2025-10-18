@@ -153,6 +153,7 @@ aliceVision_utils_split360Images.exe -i path/to/360_frames -o path/to/2d_output 
 ```
 
 Command Breakdown:
+
 `-i path/to/360_frames`: The input folder containing the 360° images you extracted with FFmpeg.
 
 `-o path/to/2d_output`: The output folder where the new 2D images will be saved.
