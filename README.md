@@ -144,6 +144,7 @@ Important Note: This utility is only available in the 2021.1.0 release of Meshro
 Download Meshroom 2021.1.0: Go to the [v2021.1.0 release page on GitHub](https://github.com/alicevision/meshroom/releases/tag/v2021.1.0) and download the version for your OS.
 
 Extract the files: Unzip the archive to a location on your computer. You do not need to install it; you only need to run the utility from the extracted folder.
+
 Run the command: Open a terminal or command prompt, navigate to the folder where you extracted Meshroom, and run the following command:
 
 ```Bash
@@ -153,8 +154,11 @@ aliceVision_utils_split360Images.exe -i path/to/360_frames -o path/to/2d_output 
 
 Command Breakdown:
 `-i path/to/360_frames`: The input folder containing the 360° images you extracted with FFmpeg.
+
 `-o path/to/2d_output`: The output folder where the new 2D images will be saved.
+
 `--equirectangularNbSplits 8`: This splits each 360° image into 8 perspective views (like photos taken facing forward, right, back, left, etc.). This is a good default for full coverage.
+
 `--equirectangularSplitResolution 1200`: This sets the output resolution of the square 2D images to 1200x1200 pixels. Adjust as needed for your project's quality requirements.
 
 Below is the original documentation
