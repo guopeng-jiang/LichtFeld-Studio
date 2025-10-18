@@ -132,12 +132,12 @@ Below is the template:
 python convert.py -s <your_input_dir> --colmap_executable COLMAP-3.8-windows-cuda\COLMAP.bat
 ```
 
-# Splitting 360° Frames into 2D Images
+## Splitting 360° Frames into 2D Images
 
 This step converts the extracted equirectangular 360° frames into a set of standard 2D perspective images. This format is required by most Structure from Motion (SfM) software, including COLMAP, to calculate camera poses accurately.
 The recommended tool for this task is a command-line utility from an older version of AliceVision Meshroom.
 
-Tool: aliceVision_utils_split360Images.exe
+Tool: `aliceVision_utils_split360Images.exe`
 
 Important Note: This utility is only available in the 2021.1.0 release of Meshroom. Newer versions do not include it as a standalone file.
 
@@ -152,10 +152,10 @@ aliceVision_utils_split360Images.exe -i path/to/360_frames -o path/to/2d_output 
 ```
 
 Command Breakdown:
--i path/to/360_frames: The input folder containing the 360° images you extracted with FFmpeg.
--o path/to/2d_output: The output folder where the new 2D images will be saved.
---equirectangularNbSplits 8: This splits each 360° image into 8 perspective views (like photos taken facing forward, right, back, left, etc.). This is a good default for full coverage.
---equirectangularSplitResolution 1200: This sets the output resolution of the square 2D images to 1200x1200 pixels. Adjust as needed for your project's quality requirements.
+`-i path/to/360_frames`: The input folder containing the 360° images you extracted with FFmpeg.
+`-o path/to/2d_output`: The output folder where the new 2D images will be saved.
+`--equirectangularNbSplits 8`: This splits each 360° image into 8 perspective views (like photos taken facing forward, right, back, left, etc.). This is a good default for full coverage.
+`--equirectangularSplitResolution 1200`: This sets the output resolution of the square 2D images to 1200x1200 pixels. Adjust as needed for your project's quality requirements.
 
 Below is the original documentation
 ---------------------------------------------------------------------------------------------------
