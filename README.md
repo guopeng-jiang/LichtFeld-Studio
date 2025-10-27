@@ -99,8 +99,9 @@ You will need to have COLMAP installed to do this. If you don't have it, you can
 ### Extra step for inputs that are videos
 
 This step is for custom inputs. If you have a video, please extract it into image frames. This can be done with FFMPEG. Below is a template for the ffmpeg command.
+
 ```
-ffmpeg -i input_data/file.mp4 -r 1/1 input_data/$filename%03d.png
+ffmpeg -i path/to/your/360_video.mp4 -vf fps=2 -qscale:v 1 output_folder/image_%04d.jpg
 ```
 
 Now, with a collection of images of a scene, you would need to put the **set** of input images into the `input_data/<your_image_collection>/input` folder. Eg. `fern/input`
